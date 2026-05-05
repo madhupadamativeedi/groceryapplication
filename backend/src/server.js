@@ -2,12 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
+
+
+// imports routes 
 const productRoute = require("./routes/productRoute");
+const adminRoute = require('./routes/adminRoute');
 
+
+
+// DB and .env configurations
 dotenv.config();
-const app = express();
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -17,12 +21,19 @@ mongoose
     console.log("Error connecting to MongoDB:", err);
   });
 
+
+
+// middlewares and routes implementation
+const app = express();
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
-
 app.use("/api/v1", productRoute);
+app.use("/api/v1", adminRoute);
 
+
+
+// server running 
 const port = 3000;
-
 app.listen(port, () => {
   console.log("Server is Running on port " + port);
 });
