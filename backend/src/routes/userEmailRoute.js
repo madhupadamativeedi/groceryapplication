@@ -7,5 +7,6 @@ const router =express.Router();
 
 
 router.post("/send-otp", sendOTPController.sendOtp);
+router.post("/verify-otp", sendOTPController.verifyOtp);
 
 module.exports = router;

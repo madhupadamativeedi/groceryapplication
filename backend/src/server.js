@@ -8,6 +8,7 @@ const path = require("path");
 const productRoute = require("./routes/productRoute");
 const adminRoute = require('./routes/adminRoute');
 const userEmailRoute = require("./routes/userEmailRoute");
+const cartRoute = require("./routes/cartRout");
 
 
 // DB and .env configurations
@@ -30,7 +31,7 @@ app.use(express.json());
 app.use("/api/v1", productRoute);
 app.use("/api/v1", adminRoute);
 app.use("/api/v1", userEmailRoute);
-
+app.use("/api/v1", cartRoute);
 
 // server running 
 const port = 3000;
