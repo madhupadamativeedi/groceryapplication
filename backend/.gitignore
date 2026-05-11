@@ -20,7 +20,7 @@ Thumbs.db
 dist/
 build/
 
-# Uploads (important for backend like yours)
+# Uploads (user-uploaded images)
 uploads/
 
 # IDE files
